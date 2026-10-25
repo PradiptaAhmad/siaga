@@ -54,7 +54,7 @@ Versi Node.js di atas mengikuti persyaratan Vite yang digunakan oleh proyek.
 1. Clone repository dan masuk ke direktori proyek.
 
    ```bash
-   git clone <URL-REPOSITORY>
+   git clone https://github.com/PradiptaAhmad/siaga
    cd siaga
    ```
 
