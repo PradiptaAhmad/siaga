@@ -22,6 +22,7 @@ export default function LandingPage() {
       </main>
       <Footer />
       <AiChatWidget />
+      <div></div>
     </div>
   )
 }
