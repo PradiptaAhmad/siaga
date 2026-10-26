@@ -1,5 +1,5 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { X, LogOut } from "lucide-react";
+import { NavLink, useLocation, useNavigate, Link } from "react-router-dom";
+import { X, LogOut, ArrowLeft } from "lucide-react";
 import logoUtama from "../../assets/img/AdminDashboard/logoAdmin.png";
 import iconDashboard from "../../assets/img/UserDashboard/SidebarDash.png";
 import iconIuran from "../../assets/img/UserDashboard/SidebarIuran.png";
@@ -9,14 +9,16 @@ import iconAspirasi from "../../assets/img/UserDashboard/SidebarPartisipasi.png"
 import iconProfil from "../../assets/img/UserDashboard/SidebarProfile.png";
 import { useAuth } from "../../context/AuthContext";
 
-// Sesuaikan "to" dengan route admin di aplikasi kamu
+// Menus admin
 const menus = [
   { label: "Dashboard", to: "/admin/dashboard", icon: iconDashboard },
-  { label: "Iuran & Keuangan", to: "/admin/iuran", icon: iconIuran },
+  { label: "Iuran & Verifikasi", to: "/admin/iuran", icon: iconIuran },
+  { label: "Buku Kas RT/RW", to: "/admin/kas", icon: iconIuran },
   { label: "Aduan & Permohonan", to: "/admin/aduan", icon: iconAduan },
-  { label: "Keamanan Lingkungan", to: "/admin/keamanan", icon: iconKeamanan },
-  { label: "Aspirasi & Partisipasi", to: "/admin/aspirasi", icon: iconAspirasi },
-  { label: "Profil Pengguna", to: "/admin/profil", icon: iconProfil },
+  { label: "Keamanan & CCTV", to: "/admin/keamanan", icon: iconKeamanan },
+  { label: "Musyawarah & Voting", to: "/admin/aspirasi", icon: iconAspirasi },
+  { label: "Pengumuman Resmi", to: "/admin/pengumuman", icon: iconAduan },
+  { label: "Direktori Warga (KK)", to: "/admin/profil", icon: iconProfil },
 ];
 
 export default function AdminSidebar({ isOpen, onClose }) {
@@ -62,7 +64,7 @@ export default function AdminSidebar({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Logo (satu-satunya yang berbeda dari sidebar user) */}
+        {/* Logo */}
         <div className="mx-3 mt-2 flex items-center justify-center rounded-xl bg-white px-3 py-3 shadow-md md:mt-3">
           <a href="/">
             <img
@@ -73,13 +75,25 @@ export default function AdminSidebar({ isOpen, onClose }) {
           </a>
         </div>
 
+        {/* Link to User Space */}
+        <div className="mx-3 mt-3">
+          <Link
+            to="/user/dashboard"
+            onClick={onClose}
+            className="flex items-center justify-center gap-1.5 rounded-lg bg-[#3CC4B0]/20 px-3 py-2 text-xs font-semibold text-[#3CC4B0] hover:bg-[#3CC4B0]/30 transition"
+          >
+            <ArrowLeft size={14} />
+            <span>Lihat Tampilan Warga</span>
+          </Link>
+        </div>
+
         {/* Menu */}
-        <nav className="mt-8 flex-1 px-2 md:mt-12" aria-label="Menu utama">
-          <ul className="space-y-1.5">
+        <nav className="mt-4 flex-1 overflow-y-auto px-2" aria-label="Menu utama">
+          <ul className="space-y-1">
             {menus.map((menu) => {
               const isActive =
                 location.pathname === menu.to ||
-                (menu.to === "/admin/dashboard" && location.pathname === "/admin");
+                (menu.to === "/admin/dashboard" && (location.pathname === "/admin" || location.pathname === "/admin/"));
 
               return (
                 <li key={menu.to}>
@@ -88,7 +102,7 @@ export default function AdminSidebar({ isOpen, onClose }) {
                     onClick={onClose}
                     className={`flex items-center gap-3 rounded-md px-3.5 py-2.5 text-xs font-semibold transition ${
                       isActive
-                        ? "bg-[#F4B740] text-[#26383D] shadow-md"
+                        ? "bg-[#F4B740] text-[#26383D] shadow-md font-bold"
                         : "text-white hover:bg-white/10"
                     }`}
                   >

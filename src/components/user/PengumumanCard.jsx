@@ -3,16 +3,20 @@ const BULAN = [
   "Juli", "Agustus", "September", "Oktober", "November", "Desember",
 ];
 
-export default function PengumumanCard({ nama, tanggal, lokasi, poin, rincian, penanggungJawab }) {
-  const [, bulan, hari] = tanggal.split("-");
+export default function PengumumanCard({ nama, tanggal = "", lokasi, poin, rincian, penanggungJawab }) {
+  const cleanDate = typeof tanggal === "string" ? tanggal.split("T")[0] : "";
+  const parts = cleanDate.split("-");
+  const hari = parts[2] ? parseInt(parts[2], 10) : new Date().getDate();
+  const bulanIndex = parts[1] ? parseInt(parts[1], 10) - 1 : new Date().getMonth();
+  const namaBulan = BULAN[bulanIndex] || BULAN[0];
 
   return (
-    <article className="rounded-md border border-[#26383D] bg-[#F5F7F6] p-2.5">
+    <article className="rounded-md border border-[#26383D]/20 bg-[#F5F7F6] p-2.5 shadow-sm transition hover:border-[#13B8A6]">
       <div className="flex gap-3">
         {/* Blok tanggal */}
         <div className="flex h-16 w-14 shrink-0 flex-col items-center justify-center rounded-md bg-[#F4B740] text-[#26383D]">
-          <span className="text-xl font-bold leading-none">{Number(hari)}</span>
-          <span className="mt-1 text-[9px] font-semibold">{BULAN[Number(bulan) - 1]}</span>
+          <span className="text-xl font-bold leading-none">{hari}</span>
+          <span className="mt-1 text-[9px] font-semibold">{namaBulan}</span>
         </div>
 
         {/* Info utama */}

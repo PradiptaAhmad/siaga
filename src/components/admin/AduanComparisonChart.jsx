@@ -13,12 +13,15 @@ const BULAN = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "O
 const COLOR_DITERIMA = "#22C55E";
 const COLOR_DITOLAK = "#EF4444";
 
-const sum = (arr) => arr.reduce((a, b) => a + b, 0);
+const sum = (arr) => arr.reduce((a, b) => a + Number(b || 0), 0);
 
 // diterima & ditolak: array 12 angka (Januari - Desember)
-export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }) {
-  const totalDiterima = sum(diterima);
-  const totalDitolak = sum(ditolak);
+export default function AduanComparisonChart({ diterima = [], ditolak = [], tahun = 2026 }) {
+  const safeDiterima = Array.isArray(diterima) && diterima.length === 12 ? diterima : Array(12).fill(0);
+  const safeDitolak = Array.isArray(ditolak) && ditolak.length === 12 ? ditolak : Array(12).fill(0);
+
+  const totalDiterima = sum(safeDiterima);
+  const totalDitolak = sum(safeDitolak);
   const totalSemua = totalDiterima + totalDitolak;
   const persenDiterima = totalSemua ? Math.round((totalDiterima / totalSemua) * 100) : 0;
 
@@ -27,7 +30,7 @@ export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }
     datasets: [
       {
         label: "Diterima",
-        data: diterima,
+        data: safeDiterima,
         backgroundColor: COLOR_DITERIMA,
         borderRadius: 3,
         barPercentage: 0.7,
@@ -35,7 +38,7 @@ export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }
       },
       {
         label: "Ditolak",
-        data: ditolak,
+        data: safeDitolak,
         backgroundColor: COLOR_DITOLAK,
         borderRadius: 3,
         barPercentage: 0.7,
@@ -49,7 +52,7 @@ export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }
     maintainAspectRatio: false,
     interaction: { mode: "index", intersect: false },
     plugins: {
-      legend: { display: false }, // legend dibuat manual agar tidak ikut tergeser
+      legend: { display: false },
       tooltip: {
         callbacks: {
           label: (ctx) => ` ${ctx.dataset.label}: ${ctx.parsed.y} aduan`,
@@ -58,7 +61,6 @@ export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }
       },
     },
     scales: {
-      // stacked: batang diterima & ditolak ditumpuk, saling "berebut" tinggi per bulan
       x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 } } },
       y: {
         stacked: true,
@@ -71,7 +73,7 @@ export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }
 
   return (
     <div>
-      {/* Legend + tahun (tetap diam saat chart digeser) */}
+      {/* Legend + tahun */}
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-[11px] font-semibold text-[#26383D]">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1.5">
@@ -83,33 +85,33 @@ export default function AduanComparisonChart({ diterima, ditolak, tahun = 2026 }
             Ditolak
           </span>
         </div>
-        <span>Januari – Desember {tahun}</span>
+        <span className="rounded bg-slate-100 px-2 py-0.5 text-xs text-slate-600">Januari – Desember {tahun}</span>
       </div>
 
-      {/* Area yang bisa digeser horizontal di dalam kotak putih */}
+      {/* Area yang bisa digeser horizontal */}
       <div className="overflow-x-auto pb-2">
-        <div className="relative h-64 min-w-[720px] md:h-72">
+        <div className="relative h-64 min-w-[700px] md:h-72">
           <Bar data={data} options={options} />
         </div>
       </div>
 
       {/* Ringkasan setahun */}
       <div className="mt-3 grid grid-cols-3 gap-2">
-        <div className="rounded-md bg-white px-2 py-2 text-center shadow-sm">
+        <div className="rounded-md border border-slate-100 bg-white px-2 py-2 text-center shadow-sm">
           <p className="text-lg font-bold text-[#26383D]">{totalDiterima}</p>
           <p className="flex items-center justify-center gap-1 text-[10px] font-medium text-gray-700">
             <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLOR_DITERIMA }} />
             Diterima
           </p>
         </div>
-        <div className="rounded-md bg-white px-2 py-2 text-center shadow-sm">
+        <div className="rounded-md border border-slate-100 bg-white px-2 py-2 text-center shadow-sm">
           <p className="text-lg font-bold text-[#26383D]">{totalDitolak}</p>
           <p className="flex items-center justify-center gap-1 text-[10px] font-medium text-gray-700">
             <span className="h-2 w-2 rounded-full" style={{ backgroundColor: COLOR_DITOLAK }} />
             Ditolak
           </p>
         </div>
-        <div className="rounded-md bg-white px-2 py-2 text-center shadow-sm">
+        <div className="rounded-md border border-slate-100 bg-white px-2 py-2 text-center shadow-sm">
           <p className="text-lg font-bold text-[#26383D]">{persenDiterima}%</p>
           <p className="text-[10px] font-medium text-gray-700">Tingkat Diterima</p>
         </div>
