@@ -332,7 +332,7 @@ export default function AdminVotingPage() {
       >
         <form onSubmit={handleCreateVoting} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Judul Program Prioritas <span className="text-rose-500">*</span>
             </label>
             <input
@@ -341,12 +341,12 @@ export default function AdminVotingPage() {
               value={votingForm.judul}
               onChange={(e) => setVotingForm({ ...votingForm, judul: e.target.value })}
               placeholder="contoh: Pemilihan Prioritas Alokasi Dana Kas RW Triwulan IV"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Deskripsi & Latar Belakang Program <span className="text-rose-500">*</span>
             </label>
             <textarea
@@ -355,12 +355,12 @@ export default function AdminVotingPage() {
               value={votingForm.deskripsi}
               onChange={(e) => setVotingForm({ ...votingForm, deskripsi: e.target.value })}
               placeholder="Jelaskan tujuan musyawarah dan dampak bagi warga..."
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Batas Waktu Voting (Deadline) <span className="text-rose-500">*</span>
             </label>
             <input
@@ -368,20 +368,20 @@ export default function AdminVotingPage() {
               required
               value={votingForm.deadline}
               onChange={(e) => setVotingForm({ ...votingForm, deadline: e.target.value })}
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
           {/* Dynamic Options */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <label className="block text-xs font-bold text-slate-200">
+              <label className="block text-xs font-bold text-slate-700">
                 Pilihan Opsi Voting (Minimal 2 Pilihan) <span className="text-rose-500">*</span>
               </label>
               <button
                 type="button"
                 onClick={handleAddOption}
-                className="text-[11px] font-bold text-indigo-400 hover:text-indigo-300"
+                className="text-[11px] font-bold text-slate-700 hover:text-indigo-300"
               >
                 + Tambah Pilihan
               </button>
@@ -397,7 +397,7 @@ export default function AdminVotingPage() {
                     value={opt}
                     onChange={(e) => handleOptionChange(idx, e.target.value)}
                     placeholder={`Opsi Pilihan ${idx + 1}`}
-                    className="flex-1 px-3.5 py-2 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+                    className="flex-1 px-3.5 py-2 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
                   />
                   {votingForm.options.length > 2 && (
                     <button
@@ -417,14 +417,14 @@ export default function AdminVotingPage() {
             <button
               type="button"
               onClick={() => setVotingModalOpen(false)}
-              className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold"
+              className="px-4 py-2 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-700 text-xs font-semibold"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={submittingVoting}
-              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold"
+              className="px-4 py-2 rounded-xl bg-[#F4B740] hover:bg-[#e0a430] text-white text-xs font-bold"
             >
               {submittingVoting ? 'Menerbitkan...' : 'Terbitkan Program Voting'}
             </button>

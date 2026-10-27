@@ -107,7 +107,7 @@ export default function AdminComplaintPage() {
   })
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-4 md:space-y-5">
       {/* Header Banner */}
       <PageBanner
         title="Tindak Lanjut Aduan & Permohonan Warga"

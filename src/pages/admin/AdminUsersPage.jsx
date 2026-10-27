@@ -306,7 +306,7 @@ export default function AdminUsersPage() {
   })
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-4 md:space-y-5">
       {/* Header Banner */}
       <PageBanner
         title="Direktori Warga & Mutasi Kartu Keluarga (KK)"
@@ -510,7 +510,7 @@ export default function AdminUsersPage() {
       {activeTab === 'pengajuan' && (
         <div className="space-y-4">
           {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-slate-900 border border-white/10">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-white border border-white/10">
             <div className="flex items-center gap-1.5">
               <span className="text-xs text-slate-400 mr-1 font-mono">Status Pengajuan:</span>
               {[
@@ -540,9 +540,9 @@ export default function AdminUsersPage() {
 
           {/* List of Requests */}
           {familyRequests.length === 0 ? (
-            <div className="p-12 text-center rounded-2xl bg-slate-900 border border-white/10">
+            <div className="p-12 text-center rounded-2xl bg-white border border-white/10">
               <ShieldCheck className="h-10 w-10 text-slate-600 mx-auto mb-2" />
-              <p className="text-sm font-bold text-white">Tidak Ada Pengajuan Mutasi KK</p>
+              <p className="text-sm font-bold text-slate-700">Tidak Ada Pengajuan Mutasi KK</p>
               <p className="text-xs text-slate-400 mt-1">
                 Laporan perubahan anggota keluarga (kelahiran, kematian, pindah) dari warga akan muncul di sini untuk di-ACC pengurus.
               </p>
@@ -698,19 +698,19 @@ export default function AdminUsersPage() {
         <form onSubmit={handleCreateWarga} className="space-y-4">
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">Nama Kepala Keluarga *</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Nama Kepala Keluarga *</label>
               <input
                 type="text"
                 required
                 placeholder="Contoh: Bpk. Ahmad Dahlan"
                 value={wargaForm.name}
                 onChange={(e) => setWargaForm({ ...wargaForm, name: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs focus:outline-none focus:border-indigo-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">Nomor Kartu Keluarga (KK) *</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Nomor Kartu Keluarga (KK) *</label>
               <input
                 type="text"
                 required
@@ -718,88 +718,88 @@ export default function AdminUsersPage() {
                 placeholder="16 digit No. KK"
                 value={wargaForm.no_kk}
                 onChange={(e) => setWargaForm({ ...wargaForm, no_kk: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs font-mono focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">Email Login *</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Email Login *</label>
               <input
                 type="email"
                 required
                 placeholder="warga@siaga.id"
                 value={wargaForm.email}
                 onChange={(e) => setWargaForm({ ...wargaForm, email: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs focus:outline-none focus:border-indigo-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">Password Awal *</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Password Awal *</label>
               <input
                 type="text"
                 required
                 value={wargaForm.password}
                 onChange={(e) => setWargaForm({ ...wargaForm, password: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs font-mono focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-4">
             <div className="sm:col-span-2">
-              <label className="block text-xs font-bold text-slate-200 mb-1">Alamat Rumah *</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Alamat Rumah *</label>
               <input
                 type="text"
                 required
                 placeholder="Jl. Griya Asri No. 24"
                 value={wargaForm.alamat}
                 onChange={(e) => setWargaForm({ ...wargaForm, alamat: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs focus:outline-none focus:border-indigo-500"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">No. WhatsApp / HP</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">No. WhatsApp / HP</label>
               <input
                 type="tel"
                 placeholder="08123456789"
                 value={wargaForm.no_hp}
                 onChange={(e) => setWargaForm({ ...wargaForm, no_hp: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs font-mono focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">RT</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">RT</label>
               <input
                 type="text"
                 value={wargaForm.rt}
                 onChange={(e) => setWargaForm({ ...wargaForm, rt: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs font-mono focus:outline-none focus:border-indigo-500"
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">RW</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">RW</label>
               <input
                 type="text"
                 value={wargaForm.rw}
                 onChange={(e) => setWargaForm({ ...wargaForm, rw: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs font-mono focus:outline-none focus:border-indigo-500"
               />
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">Poin Keaktifan Awal</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Poin Keaktifan Awal</label>
               <input
                 type="number"
                 min="0"
                 value={wargaForm.poin_keaktifan}
                 onChange={(e) => setWargaForm({ ...wargaForm, poin_keaktifan: parseInt(e.target.value) || 0 })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs font-mono focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-slate-800 text-xs font-mono focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
@@ -808,14 +808,14 @@ export default function AdminUsersPage() {
             <button
               type="button"
               onClick={() => setCreateWargaOpen(false)}
-              className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold"
+              className="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-700 text-xs font-semibold"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={creatingWarga}
-              className="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-md"
+              className="px-5 py-2 rounded-xl bg-[#F4B740] hover:bg-[#e0a430] text-black text-xs font-bold shadow-md"
             >
               {creatingWarga ? 'Mendaftarkan...' : 'Daftarkan Warga'}
             </button>
@@ -863,7 +863,7 @@ export default function AdminUsersPage() {
 
                 <div className="grid sm:grid-cols-3 gap-3">
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Nama Lengkap *</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Nama Lengkap *</label>
                     <input
                       type="text"
                       required
@@ -875,7 +875,7 @@ export default function AdminUsersPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">NIK (16 Digit)</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">NIK (16 Digit)</label>
                     <input
                       type="text"
                       maxLength={16}
@@ -887,7 +887,7 @@ export default function AdminUsersPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Hubungan Keluarga</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Hubungan Keluarga</label>
                     <select
                       value={memberForm.hubungan}
                       onChange={(e) => setMemberForm({ ...memberForm, hubungan: e.target.value })}
@@ -905,7 +905,7 @@ export default function AdminUsersPage() {
 
                 <div className="grid sm:grid-cols-4 gap-3">
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Status Keberadaan</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Status Keberadaan</label>
                     <select
                       value={memberForm.status}
                       onChange={(e) => setMemberForm({ ...memberForm, status: e.target.value })}
@@ -918,7 +918,7 @@ export default function AdminUsersPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Jenis Kelamin</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Jenis Kelamin</label>
                     <select
                       value={memberForm.jenis_kelamin}
                       onChange={(e) => setMemberForm({ ...memberForm, jenis_kelamin: e.target.value })}
@@ -930,7 +930,7 @@ export default function AdminUsersPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Tanggal Lahir</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Tanggal Lahir</label>
                     <input
                       type="date"
                       value={memberForm.tanggal_lahir}
@@ -940,7 +940,7 @@ export default function AdminUsersPage() {
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Tgl Peristiwa (Wafat/Pindah)</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Tgl Peristiwa (Wafat/Pindah)</label>
                     <input
                       type="date"
                       value={memberForm.tanggal_peristiwa}
@@ -952,7 +952,7 @@ export default function AdminUsersPage() {
 
                 <div className="grid sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Pekerjaan</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Pekerjaan</label>
                     <input
                       type="text"
                       placeholder="Contoh: Karyawan Swasta / Pelajar"
@@ -962,7 +962,7 @@ export default function AdminUsersPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-slate-300 mb-1">Catatan Tambahan</label>
+                    <label className="block text-[11px] font-bold text-slate-700 mb-1">Catatan Tambahan</label>
                     <input
                       type="text"
                       placeholder="Keterangan peristiwa / kondisi"

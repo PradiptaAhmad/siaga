@@ -126,7 +126,7 @@ export default function AdminAnnouncementPage() {
   })
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-4 md:space-y-5">
       {/* Header Banner */}
       <PageBanner
         title="Pengumuman & Pemberitahuan Resmi Lingkungan"
@@ -198,7 +198,7 @@ export default function AdminAnnouncementPage() {
               <div className="mt-4 pt-3 border-t border-slate-100 flex flex-wrap items-center gap-4 text-[11px] text-slate-500 font-mono">
                 <span className="flex items-center gap-1">
                   <Calendar className="h-3 w-3 text-slate-400" /> {formatDate(a.tanggal)}
-                </span>
+                </span>f
                 {a.lokasi && (
                   <span className="flex items-center gap-1">
                     <MapPin className="h-3 w-3 text-slate-400" /> {a.lokasi}
@@ -232,7 +232,7 @@ export default function AdminAnnouncementPage() {
       >
         <form onSubmit={handleSave} className="space-y-4">
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Judul Pengumuman <span className="text-rose-500">*</span>
             </label>
             <input
@@ -241,17 +241,17 @@ export default function AdminAnnouncementPage() {
               value={form.judul}
               onChange={(e) => setForm({ ...form, judul: e.target.value })}
               placeholder="contoh: Jadwal Kerja Bakti & Fogging Nyamuk DBD RT 004"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">Kategori</label>
+              <label className="block text-xs font-bold text-slate-700 mb-1">Kategori</label>
               <select
                 value={form.kategori}
                 onChange={(e) => setForm({ ...form, kategori: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
               >
                 <option value="Rapat Warga">Rapat Warga</option>
                 <option value="Kerja Bakti">Kerja Bakti</option>
@@ -262,7 +262,7 @@ export default function AdminAnnouncementPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-200 mb-1">
+              <label className="block text-xs font-bold text-slate-700 mb-1">
                 Tanggal Terbit / Kegiatan
               </label>
               <input
@@ -270,13 +270,13 @@ export default function AdminAnnouncementPage() {
                 required
                 value={form.tanggal}
                 onChange={(e) => setForm({ ...form, tanggal: e.target.value })}
-                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Lokasi Kegiatan (Opsional)
             </label>
             <input
@@ -284,12 +284,12 @@ export default function AdminAnnouncementPage() {
               value={form.lokasi}
               onChange={(e) => setForm({ ...form, lokasi: e.target.value })}
               placeholder="contoh: Balai Pertemuan Warga / Lapangan Serbaguna"
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Ringkasan Singkat (Lead Text)
             </label>
             <input
@@ -297,12 +297,12 @@ export default function AdminAnnouncementPage() {
               value={form.ringkasan}
               onChange={(e) => setForm({ ...form, ringkasan: e.target.value })}
               placeholder="contoh: Diharapkan seluruh kepala keluarga hadir membawa alat kebersihan masing-masing."
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-slate-200 mb-1">
+            <label className="block text-xs font-bold text-slate-700 mb-1">
               Isi Lengkap Pengumuman <span className="text-rose-500">*</span>
             </label>
             <textarea
@@ -311,7 +311,7 @@ export default function AdminAnnouncementPage() {
               value={form.isi}
               onChange={(e) => setForm({ ...form, isi: e.target.value })}
               placeholder="Tuliskan isi pengumuman lengkap secara rinci..."
-              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
+              className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 border border-white/15 text-white text-xs focus:outline-none focus:border-indigo-500"
             />
           </div>
 
@@ -321,9 +321,9 @@ export default function AdminAnnouncementPage() {
               id="pinned"
               checked={form.pinned}
               onChange={(e) => setForm({ ...form, pinned: e.target.checked })}
-              className="h-4 w-4 rounded bg-slate-900 border-white/20 text-indigo-600 focus:ring-0"
+              className="h-4 w-4 rounded bg-slate-50 border-white/20 text-indigo-600 focus:ring-0"
             />
-            <label htmlFor="pinned" className="text-xs text-slate-300 font-semibold cursor-pointer">
+            <label htmlFor="pinned" className="text-xs text-slate-700 font-semibold cursor-pointer">
               Sematkan pengumuman ini di urutan paling atas (Pinned Announcement)
             </label>
           </div>
@@ -332,14 +332,14 @@ export default function AdminAnnouncementPage() {
             <button
               type="button"
               onClick={() => setModalOpen(false)}
-              className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 text-xs font-semibold"
+              className="px-4 py-2 rounded-xl bg-slate-100 text-slate-800 hover:bg-slate-700 text-xs font-semibold"
             >
               Batal
             </button>
             <button
               type="submit"
               disabled={submitting}
-              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold"
+              className="px-4 py-2 rounded-xl bg-[#F4B740] hover:bg-[#e0a430] text-white text-xs font-bold"
             >
               {submitting ? 'Menerbitkan...' : 'Terbitkan Sekarang'}
             </button>

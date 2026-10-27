@@ -4,7 +4,6 @@ import AdminDashboard from "../pages/AdminDashboard";
 import AdminPaymentPage from "../../pages/admin/AdminPaymentPage";
 import AdminKasPage from "../../pages/admin/AdminKasPage";
 import AdminComplaintPage from "../../pages/admin/AdminComplaintPage";
-import AdminCctvPage from "../../pages/admin/AdminCctvPage";
 import AdminVotingPage from "../../pages/admin/AdminVotingPage";
 import AdminAnnouncementPage from "../../pages/admin/AdminAnnouncementPage";
 import AdminUsersPage from "../../pages/admin/AdminUsersPage";
@@ -26,10 +25,6 @@ export default function AdminRoutes() {
         {/* Aduan & Permohonan */}
         <Route path="aduan" element={<AdminComplaintPage />} />
         <Route path="complaint" element={<AdminComplaintPage />} />
-
-        {/* Keamanan & CCTV */}
-        <Route path="keamanan" element={<AdminCctvPage />} />
-        <Route path="cctv" element={<AdminCctvPage />} />
 
         {/* Aspirasi & Musyawarah Voting */}
         <Route path="aspirasi" element={<AdminVotingPage />} />
