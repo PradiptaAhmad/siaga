@@ -458,11 +458,20 @@ export default function IuranKeuangan() {
           </div>
         </div>
 
+        <button
+            type="button"
+            onClick={() => setPayIuranModal(true)}
+            className="flex-1 w-full sm:flex-initial rounded-lg bg-[#0F5A6B] px-4 py-4 text-xs font-bold text-white shadow-sm transition hover:bg-[#0c4756] flex items-center justify-center gap-1.5 lg:hidden"
+          >
+            <CreditCard size={14} />
+            <span>Bayar Iuran Bulanan</span>
+          </button>
+
         <div className="flex items-center gap-2 w-full sm:w-auto shrink-0">
           <button
             type="button"
             onClick={() => setPayIuranModal(true)}
-            className="flex-1 sm:flex-initial rounded-lg bg-[#0F5A6B] px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-[#0c4756] flex items-center justify-center gap-1.5"
+            className="flex-1 sm:flex-initial rounded-lg bg-[#0F5A6B] px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:bg-[#0c4756] hidden lg:flex items-center justify-center gap-1.5"
           >
             <CreditCard size={14} />
             <span>Bayar Iuran Bulanan</span>

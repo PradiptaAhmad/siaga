@@ -255,19 +255,28 @@ export default function AduanPermohonan() {
 
       {/* Dua section utama: mobile bertumpuk | desktop berdampingan */}
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        <button
+              type="button"
+              onClick={() => setModalOpen(true)}
+              className="flex w-full md:hidden items-center gap-1.5 rounded-lg bg-[#0F5A6B] px-3.5 py-4 text-xs font-semibold text-white shadow-sm transition hover:bg-[#0c4756]"
+            >
+              <Plus size={14} />
+              <span>Buat Laporan Baru</span>
+            </button>
         <ChartCard
           icon={iconHeaderAduanSaya}
           title="Aduan / Permohonan Saya"
           subtitle="Lihat semua aduan / permohonan yang telah saya kirim"
         >
+          
           <div className="mb-3 flex justify-end">
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="flex items-center gap-1.5 rounded-lg bg-[#0F5A6B] px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-[#0c4756]"
+              className="lg:flex hidden items-center gap-1.5 rounded-lg bg-[#0F5A6B] px-3.5 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-[#0c4756]"
             >
               <Plus size={14} />
-              <span>+ Buat Laporan Baru</span>
+              <span>Buat Laporan Baru</span>
             </button>
           </div>
 

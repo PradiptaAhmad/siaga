@@ -5,8 +5,10 @@ import WhyUsSection from '../0landingPage/WhyUs/WhyUsSection'
 import RingkasanSection from '../0landingPage/Ringkasan/RingkasanSection'
 import FaqSection from '../0landingPage/Faq/FaqSection'
 import CtaSection from '../0landingPage/Cta/CtaSection'
+import NewsSection from '../0landingPage/news/NewsSection'
 import Footer from '../components/landing/Footer'
 import AiChatWidget from '../components/landing/AiChatWidget'
+
 
 export default function LandingPage() {
   return (
@@ -16,6 +18,7 @@ export default function LandingPage() {
         <Hero />
         <FiturSection />
         <WhyUsSection />
+        <NewsSection/>
         <RingkasanSection />
         <FaqSection />
         <CtaSection />
